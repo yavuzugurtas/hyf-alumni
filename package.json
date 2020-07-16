@@ -1,34 +1,35 @@
 {
-  "name": "hyfalumniplatform",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
-  },
+  "name": "cooool",
+  "version": "1.0.0",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "concurrently \"npm run dev-api\" \"npm run dev-client\"",
+    "dev-api": "nodemon api/dev.js",
+    "dev-client": "cd client && npm run start",
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "test": "cd api && jest --collectCoverage=true --forceExit",
+    "test:watch": "cd api && jest --watch --collectCoverage=true --runInBand --detectOpenHandles"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.5",
+    "multer": "^1.4.2",
+    "reactstrap": "^8.4.1",
+    "sharp": "^0.25.1",
+    "validator": "^12.2.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "jest": "^25.2.3",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
   }
 }
